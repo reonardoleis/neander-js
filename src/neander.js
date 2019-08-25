@@ -716,9 +716,18 @@ async function run(code){
             break;
         }
 
-
+        if(ac > 127){
+            n = true;
+            z = false;
+        }else if(ac == 0){
+            z = true;
+            n = false;
+        }else{
+            z = false;
+            n = false;
+        }
         update(ac, pc, z, n);
-        await sleep(10);
+        await sleep(1);
     }
 }
 
@@ -794,7 +803,6 @@ function not(data){
 }
 
 function or(current_ac, data){
-    console.log(`Or de ${current_ac} com ${data}`)
     let byte1 = expandByte(current_ac).split('');
     let byte2 = expandByte(data).split('');
     let out = '';
@@ -852,16 +860,6 @@ function and(ac, data){
 function lda(data){
     let temp = document.getElementById(data).value
     ac = document.getElementById(temp).value;
-    if(ac > 127){
-        n = true;
-        z = false;
-    }else if(ac == 0){
-        z = true;
-        n = false;
-    }else{
-        z = false;
-        n = false;
-    }
 }
 
 function sta(data){
