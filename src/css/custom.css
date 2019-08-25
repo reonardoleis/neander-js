@@ -33,7 +33,7 @@
 
 @media(orientation: landscape){
 .btn{
-    width: 15vw;
+    width: 10vw;
     padding: 15px !important;
 }
 }
@@ -69,4 +69,10 @@ input{
     border: none;
     background: rgba(0, 0, 0, 0);
     width: 100%;
+}
+
+@media(orientation: landscape){
+    .mobile-desktop{
+        position: absolute;
+    }
 }
