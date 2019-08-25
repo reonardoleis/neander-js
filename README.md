@@ -5,5 +5,5 @@ Pode ser acessado [aqui](https://reonardoleis.github.io/neanderjs).
 
 # TODO
 - Corrigir número de acessos e instruções
-- Adicionar modo step
+- Adicionar modo step(ok)
 - Corrigir possíveis bugs
