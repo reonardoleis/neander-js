@@ -63,6 +63,7 @@ function changed(end){
     if(is_data == true){
         document.getElementById("m"+end).innerHTML = "DADO";
     }
+    document.getElementById(end).value = parseInt(document.getElementById(end).value);
 }
 
 function start(){
