@@ -306,7 +306,7 @@ function update(ac, pc, z, n){
 }
 
 
-function exportAsAssemble(){
+function exportAsAssembly(){
     let code = createCodeArray();
     let out = '';
     for(let i = 0; i < code.length; i++){
@@ -508,7 +508,7 @@ document.write(`<html>
                     </div>
                 </div>
                 <br>
-                <label>(Para exportar como assemble, o que for varíavel deve iniciar com <strong>v</strong>. Exemplo: v100)</label>
+                <label>(Para exportar como assembly, o que for varíavel deve iniciar com <strong>v</strong>. Exemplo: v100)</label>
                 <br>
                 <div class="row">
                     <div class="col">
@@ -524,7 +524,7 @@ document.write(`<html>
                             <button onclick="importJson()" class="btn btn-dark">Importar<BR>JSON</button>
                     </div>
                     <div class="col">
-                            <button onclick="exportAsAssemble()" class="btn btn-dark">Exportar<BR>Assemble</button>
+                            <button onclick="exportAsAssembly()" class="btn btn-dark">Exportar<BR>Assembly</button>
                     </div>
                     
                 </div>
@@ -542,7 +542,7 @@ document.write(`<html>
         </div>
         <div class="container">
             <label onclick="mostraEsconde()" style="cursor: pointer;">Mostrar/Esconder área de JSON</label>
-            <textarea id="json" style="width: 100%; height: 20vh; display: none" placeholder="Aqui você cola o código em JSON para importar ou recebe o resultado da exportação em JSON ou Assemble"></textarea>
+            <textarea id="json" style="width: 100%; height: 20vh; display: none" placeholder="Aqui você cola o código em JSON para importar ou recebe o resultado da exportação em JSON ou Assembly"></textarea>
         </div>
         <hr>
         <div class="container">
