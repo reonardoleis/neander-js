@@ -1,0 +1,72 @@
+.fit{
+    width: fit-content;
+}
+
+.center{
+    margin: 0 auto;
+}
+
+.little-padding{
+    padding: 20px;
+}
+
+.display{
+    background: black;
+    color: greenyellow;
+    padding: 5px;
+    padding-left: 35px;
+    padding-right: 35px;
+    font-family: monospace;
+    font-size: 200%;
+}
+
+.strong{
+    font-weight: bold;
+}
+
+.flag{
+    background: black;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 10000px;
+}
+
+@media(orientation: landscape){
+.btn{
+    width: 15vw;
+    padding: 15px !important;
+}
+}
+
+@media(orientation: portrait){
+    .btn{
+        width: 80vw;
+        padding: 15px !important;
+    }
+    }
+
+.col-border{
+    border: 1px solid lightgrey !important;
+}
+
+.menu{
+    position: fixed;
+    right: 5vw;
+    background: black;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    z-index: 2;
+}
+
+@media(orientation: portrait){
+    .menu{
+        display: none;
+    }
+}
+
+input{
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    width: 100%;
+}
