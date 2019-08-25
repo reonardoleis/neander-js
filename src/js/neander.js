@@ -62,8 +62,14 @@ function changed(end){
     }
     if(is_data == true){
         document.getElementById("m"+end).innerHTML = "DADO";
+
+        
+    }
+    
+    if(document.getElementById(end).value.indexOf("v") != -1){
         document.getElementById(end).value = "v"+parseInt(document.getElementById(end).value.replace("v", ""));
-    }else{
+    }
+    else{
         document.getElementById(end).value = parseInt(document.getElementById(end).value);
     }
 }
