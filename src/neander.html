@@ -12,16 +12,28 @@
             <br>
             <label>N: </label><label id="n">false</label>
             <br>
-            <button onclick="start()">INICIAR</button>
+            <label>Acessos: </label><label id="acessos">0</label>
+            <br>
+            <label>Instruções: </label><label id="instrucoes">0</label>
+            <div style="position: fixed; right: 20%">
+            Pular para:<br>
+            <a href="#inst">Instruções</a> | <a href="#dados">Dados</a>
+        </div>
+            <br>
+            <br>
+            <button onclick="start()">INICIAR</button> 
+            <button onclick="exportAsJson()">EXPORTAR(json)</button>
+            <button onclick="importJson()">IMPORTAR(json)</button>
         </div>
         <hr>
-        <div id="tabela">
+        
+        <div id="tabela" style="float: left">
             <table border=1>
                 <tr>
                     <th>Endereço</th><th>Valor</th><th>Mnemônico</th>
                 </tr>
                 
- <tr>
+ <tr id="inst">
     <td>0</td><td><input type="text" value="0" id="0" onchange="changed(0)"/></td><td id="m0">NOP</td>
 </tr> <tr>
     <td>1</td><td><input type="text" value="0" id="1" onchange="changed(1)"/></td><td id="m1">NOP</td>
@@ -277,7 +289,7 @@
     <td>126</td><td><input type="text" value="0" id="126" onchange="changed(126)"/></td><td id="m126">NOP</td>
 </tr> <tr>
     <td>127</td><td><input type="text" value="0" id="127" onchange="changed(127)"/></td><td id="m127">NOP</td>
-</tr> <tr>
+</tr> <tr id="dados">
     <td>128</td><td><input type="text" value="0" id="128" onchange="changed(128)"/></td><td id="m128">NOP</td>
 </tr> <tr>
     <td>129</td><td><input type="text" value="0" id="129" onchange="changed(129)"/></td><td id="m129">NOP</td>
@@ -536,6 +548,10 @@
 </tr>
             </table>
         </div>
+        <div style="float: right; width: 70%">
+            <h3>Código a Importar/Resultado da Exportação</h3>
+            <textarea style="width: 100%; height: 100vh" id="json"></textarea>
+            </div>
         <script src="neander.js"></script>
     </body>
 </html>
