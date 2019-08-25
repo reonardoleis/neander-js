@@ -200,8 +200,10 @@ async function run(){
             break;
 
             case HLT:
-                pc = 500;
+                pc++;
                 instructions++;
+                update(ac, pc, z, n);
+                return;
             break;
 
             case JMP:
@@ -269,7 +271,7 @@ async function run(){
             n = false;
         }
         update(ac, pc, z, n);
-        await sleep(10);
+        await sleep(5);
     }
 }
 
