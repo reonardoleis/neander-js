@@ -26,6 +26,8 @@ var ac = 0;
 var pc = 0;
 var z = false;
 var n = false;
+var memory_fetches = 0;
+var instructions = 0;
 var curr_ac;
 var bin1;
 var fetched_data;
@@ -63,6 +65,21 @@ function start(){
     run(code);
 }
 
+function exportAsJson(){
+    let code = createCodeArray();
+    document.getElementById('json').value = JSON.stringify(code);
+}
+
+function importJson(){
+    let code = document.getElementById('json').value;
+    console.log(code);
+    code = JSON.parse(code);
+    for(let i = 0; i < code.length; i++){
+        document.getElementById(i+"").value = code[i];
+        changed(i);
+    }
+}
+
 async function run(code){
     for(pc = 0; pc < code.length; pc++){
         let instruction = translate(code[pc]);
@@ -71,30 +88,38 @@ async function run(code){
             case LDA:
                 pc++;
                 lda(pc);
+                memory_fetches++;
+                instructions++;
             break;
 
             case STA:
                 pc++;
                 sta(pc);
+                memory_fetches++;
+                instructions++;
             break;
 
             case HLT:
                 pc = 500;
+                instructions++;
             break;
 
             case JMP:
                 pc = fetch(pc + 1) - 1;
+                instructions++;
             break;
 
             case JN:
                 if(n){
                     pc = fetch(pc + 1) - 1;
+                    instructions++;
                 }
             break;
 
             case JZ:
                 if(z){
                     pc = fetch(pc + 1) - 1;
+                    instructions++;
                 }
             break;
 
@@ -105,12 +130,14 @@ async function run(code){
                 fetched_data = fetch(fetch(pc)).toString();
                 bin2 = (+fetched_data).toString(2);
                 ac = or(bin1, bin2);
+                instructions++;
             break;
 
             case NOT:
                 curr_ac = ac.toString();
                 bin1 = (+curr_ac).toString(2);
                 ac = not(bin1);
+                instructions++;
             break;
 
             case AND:
@@ -120,6 +147,7 @@ async function run(code){
                 fetched_data = fetch(fetch(pc)).toString();
                 bin2 = (+fetched_data).toString(2);
                 ac = and(bin1, bin2);
+                instructions++;
             break;
 
             case ADD:
@@ -127,6 +155,7 @@ async function run(code){
                 curr_ac = ac;
                 fetched_data = fetch(fetch(pc))
                 ac = add(parseInt(curr_ac), parseInt(fetched_data));
+                instructions++;
             break;
         }
 
@@ -164,6 +193,8 @@ function update(ac, pc, z, n){
     }
     document.getElementById("z").innerHTML = zt
     document.getElementById("n").innerHTML = nt
+    document.getElementById("acessos").innerHTML = memory_fetches
+    document.getElementById("instrucoes").innerHTML = instructions
 }
 function translate(data){
     let i = 0;
@@ -282,6 +313,7 @@ function sta(data){
 }
 
 function fetch(data){
+    memory_fetches++;
     return document.getElementById(data).value;
 }
 
