@@ -15,6 +15,8 @@ document.write(`<html>
         <label>N. de Acessos: </label><label id="acessos">0</label>
         <br>
         <label>N. de Instru&ccedil&otildees: </label><label id="instrucoes">0</label>
+        <br>
+        <img src='inst.png'>
         <div style="position: fixed; right: 20%">
         Pular para:<br>
         <a href="#inst">Instru&ccedil&otildees</a> | <a href="#dados">Dados</a>
