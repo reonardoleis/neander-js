@@ -32,31 +32,36 @@ document.write(`<html>
                     </div>
                     <div class="col">
                             <label class="strong">Z:</label>
-                            <div class="flag" id="z"></div>
+                            <div class="flag" id="z" style="background: greenyellow"></div>
                     </div>
                 </div>
                 <br>
                 <label>(Para exportar como assemble, o que for varíavel deve iniciar com <strong>v</strong>. Exemplo: v100)</label>
                 <br>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col">
                         <button onclick="start()" class="btn btn-dark">Rodar<br>Programa</button>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col">
+                            <button onclick="step()" class="btn btn-dark">Rodar<BR>Passo(F2)</button>
+                    </div>
+                    <div class="col">
                             <button onclick="exportAsJson()" class="btn btn-dark">Exportar<br>JSON</button>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col">
                             <button onclick="importJson()" class="btn btn-dark">Importar<BR>JSON</button>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col">
                             <button onclick="exportAsAssemble()" class="btn btn-dark">Exportar<BR>Assemble</button>
                     </div>
+                    
                 </div>
+                <label style="text-decoration: underline; cursor: pointer; color: red" onclick="reset()">Zerar PC/AC/FLAGS(Atalho: F4)</label>
             </div>
             
         </div>
         <hr>
-        <div class="menu">
+        <div class="menu" style="display: none">
             <h5>Menu</h5>
             <a href="#inst">Instruções</a>
             <br>
@@ -69,19 +74,21 @@ document.write(`<html>
         </div>
         <hr>
         <div class="container">
-            <h3 style="text-align: center">Memória</h3>
-            <div class="row">
-                <div class="col col-border">
-                    <label>End.</label>
-                </div>
-                <div class="col col-border">
-                    <label>Dado</label>
-                </div>
-                <div class="col col-border">
-                    <label>Mne.</label>
-                </div>
+<div class="row">
+<div class="col-md-4 mobile-desktop" style="float: right;">
+        <h3 style="text-align: center">Programa</h3>
+        <div class="row">
+            <div class="col col-border">
+                <label>End.</label>
             </div>
-            <div class='row' id="inst"><div class='col col-border'>0</div><div class='col col-border'><input type='text' value='0' id='0' onchange='changed(0)'></div><div class='col col-border'><label id='m0'>NOP</label></div></div>
+            <div class="col col-border">
+                <label>Dado</label>
+            </div>
+            <div class="col col-border">
+                <label>Mne.</label>
+            </div>
+        </div>
+<div class='row' id="inst"><div class='col col-border'>0</div><div class='col col-border'><input type='text' value='0' id='0' onchange='changed(0)'></div><div class='col col-border'><label id='m0'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>1</div><div class='col col-border'><input type='text' value='0' id='1' onchange='changed(1)'></div><div class='col col-border'><label id='m1'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>2</div><div class='col col-border'><input type='text' value='0' id='2' onchange='changed(2)'></div><div class='col col-border'><label id='m2'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>3</div><div class='col col-border'><input type='text' value='0' id='3' onchange='changed(3)'></div><div class='col col-border'><label id='m3'>NOP</label></div></div>
@@ -209,7 +216,22 @@ document.write(`<html>
 <div class='row'><div class='col col-border'>125</div><div class='col col-border'><input type='text' value='0' id='125' onchange='changed(125)'></div><div class='col col-border'><label id='m125'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>126</div><div class='col col-border'><input type='text' value='0' id='126' onchange='changed(126)'></div><div class='col col-border'><label id='m126'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>127</div><div class='col col-border'><input type='text' value='0' id='127' onchange='changed(127)'></div><div class='col col-border'><label id='m127'>NOP</label></div></div>
-<div class='row' id="dados"><div class='col col-border'>128</div><div class='col col-border'><input type='text' value='0' id='128' onchange='changed(128)'></div><div class='col col-border'><label id='m128'>NOP</label></div></div>
+</div>
+</div>
+<div class="col-md-4" style="float: right;">
+        <h3 style="text-align: center">Dados</h3>
+        <div class="row">
+            <div class="col col-border">
+                <label>End.</label>
+            </div>
+            <div class="col col-border">
+                <label>Dado</label>
+            </div>
+            <div class="col col-border">
+                <label>Mne.</label>
+            </div>
+        </div>
+    <div class='row' id="dados"><div class='col col-border'>128</div><div class='col col-border'><input type='text' value='0' id='128' onchange='changed(128)'></div><div class='col col-border'><label id='m128'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>129</div><div class='col col-border'><input type='text' value='0' id='129' onchange='changed(129)'></div><div class='col col-border'><label id='m129'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>130</div><div class='col col-border'><input type='text' value='0' id='130' onchange='changed(130)'></div><div class='col col-border'><label id='m130'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>131</div><div class='col col-border'><input type='text' value='0' id='131' onchange='changed(131)'></div><div class='col col-border'><label id='m131'>NOP</label></div></div>
@@ -337,10 +359,9 @@ document.write(`<html>
 <div class='row'><div class='col col-border'>253</div><div class='col col-border'><input type='text' value='0' id='253' onchange='changed(253)'></div><div class='col col-border'><label id='m253'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>254</div><div class='col col-border'><input type='text' value='0' id='254' onchange='changed(254)'></div><div class='col col-border'><label id='m254'>NOP</label></div></div>
 <div class='row'><div class='col col-border'>255</div><div class='col col-border'><input type='text' value='0' id='255' onchange='changed(255)'></div><div class='col col-border'><label id='m255'>NOP</label></div></div>
-
-
-        </div>
-    </div>
+</div>
+</div>
+</div>
     <script>
         var mostra_esconde = false;
         function mostraEsconde(){
@@ -381,10 +402,10 @@ const OPS = [{code: 00, name: NOP},
             {code: 160, name: JZ},
             {code: 240, name: HLT},];
 
-
+var code = '';
 var ac = 0;
 var pc = 0;
-var z = false;
+var z = true;
 var n = false;
 var memory_fetches = 0;
 var instructions = 0;
@@ -425,8 +446,9 @@ function changed(end){
 }
 
 function start(){
-    let code  = createCodeArray();
-    run(code);
+    pc = 0;
+    code  = createCodeArray();
+    run();
 }
 
 function exportAsJson(){
@@ -444,8 +466,103 @@ function importJson(){
     }
 }
 
-async function run(code){
-    for(pc = 0; pc < code.length; pc++){
+function step(){
+    code = createCodeArray();
+    ac = ac.toString().replace("v", "");
+    ac = parseInt(ac, 10);
+    let instruction = translate(code[pc]);
+    paint(pc);
+    switch(instruction){
+        case LDA:
+            pc++;
+            lda(pc);
+            memory_fetches++;
+            instructions++;
+        break;
+
+        case STA:
+            pc++;
+            sta(pc);
+            memory_fetches++;
+            instructions++;
+        break;
+
+        case HLT:
+            instructions++;
+        break;
+
+        case JMP:
+            pc = fetch(pc + 1) - 1;
+            instructions++;
+        break;
+
+        case JN:
+            if(n){
+                pc = fetch(pc + 1) - 1;
+                instructions++;
+            }
+        break;
+
+        case JZ:
+            if(z){
+                pc = fetch(pc + 1) - 1;
+                instructions++;
+            }
+        break;
+
+        case OR:
+            pc++;
+            curr_ac = ac.toString();
+            bin1 = (+curr_ac).toString(2);
+            fetched_data = fetch(fetch(pc)).toString();
+            bin2 = (+fetched_data).toString(2);
+            ac = or(bin1, bin2);
+            instructions++;
+        break;
+
+        case NOT:
+            curr_ac = ac.toString();
+            bin1 = (+curr_ac).toString(2);
+            ac = not(bin1);
+            instructions++;
+        break;
+
+        case AND:
+            pc++;
+            curr_ac = ac.toString();
+            bin1 = (+curr_ac).toString(2);
+            fetched_data = fetch(fetch(pc)).toString();
+            bin2 = (+fetched_data).toString(2);
+            ac = and(bin1, bin2);
+            instructions++;
+        break;
+
+        case ADD:
+            pc++;
+            curr_ac = ac;
+            fetched_data = fetch(fetch(pc))
+            ac = add(parseInt(curr_ac), parseInt(fetched_data));
+            instructions++;
+        break;
+    }
+    if(ac > 127){
+        n = true;
+        z = false;
+    }else if(ac == 0){
+        z = true;
+        n = false;
+    }else{
+        z = false;
+        n = false;
+    }
+    pc++;
+    update(ac, pc, z, n);
+}
+async function run(){
+    code = createCodeArray();
+    for(pc = pc; pc < code.length; pc++){
+        ac = ac.toString().replace("v", "");
+        ac = parseInt(ac, 10);
         let instruction = translate(code[pc]);
         paint(pc);
         switch(instruction){
@@ -522,8 +639,6 @@ async function run(code){
                 instructions++;
             break;
         }
-        ac = ac.toString().replace("v", "");
-        ac = parseInt(ac, 10);
         if(ac > 127){
             n = true;
             z = false;
@@ -714,7 +829,27 @@ function sta(data){
 
 function fetch(data){
     memory_fetches++;
-    return document.getElementById(data).value;
+    return parseInt(document.getElementById(data).value.replace("v", ""));
+}
+
+function reset(){
+    pc = 0;
+    ac = 0;
+    n = false;
+    z = true;
+    document.getElementById("n").style.background = "black";
+    document.getElementById("z").style.background = "greenyellow";
+    document.getElementById("pc").innerHTML = pc;
+    document.getElementById("ac").innerHTML = ac;
+    paint(pc);
+}
+
+window.onkeydown = (evt) => {
+    if(evt.keyCode == 113){
+        step();
+    }else if(evt.keyCode == 115){
+        reset();
+    }
 }
 
 
