@@ -186,9 +186,11 @@ function step(){
     pc++;
     update(ac, pc, z, n);
 }
+
 async function run(){
-    code = createCodeArray();
+    
     for(pc = pc; pc < code.length; pc++){
+        code = createCodeArray();
         ac = ac.toString().replace("v", "");
         ac = parseInt(ac, 10);
         let instruction = translate(code[pc]);
